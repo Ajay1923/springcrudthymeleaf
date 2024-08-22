@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
- 
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Courses</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
- 
+
 <body>
     <div class="container my-5">
-        <h3> Add User</h3>
+        <h3>Add Course</h3>
         <div class="card">
             <div class="card-body">
                 <div class="col-md-10">
-                    <form action="#" th:action="@{/addcourse}" th:object="${course}"
-                                                                       method="post">
+                    <form action="#" th:action="@{/addcourse}" th:object="${course}" method="post">
                         <div class="row">
-							<div class="form-group col-md-8">
-							      <label for="name" class="col-form-label"> Name</label> 
-							      <input type="text" th:field="*{name}" class="form-control"
-							                  id="firstName" placeholder=" Name" />
-							                            </div>
                             <div class="form-group col-md-8">
-                                <label for="name" class="col-form-label">Tech Name</label> 
-                                <input type="text" th:field="*{tech}" class="form-control"
-                                            id="lastName" placeholder="Tech" />
+                                <label for="id" class="col-form-label">ID</label>
+                                <input type="text" th:field="*{id}" class="form-control" id="id" placeholder="ID" />
                             </div>
-                            
                             <div class="form-group col-md-8">
-                                <label for="email" class="col-form-label">No of Days</label> 
-                                <input type="text" th:field="*{noOfDays}" class="form-control"
-                                            id="noofdays" placeholder="No of Days" />
+                                <label for="name" class="col-form-label">Name</label>
+                                <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name" />
                             </div>
-                            
- 
+                            <div class="form-group col-md-8">
+                                <label for="tech" class="col-form-label">Tech Name</label>
+                                <input type="text" th:field="*{tech}" class="form-control" id="tech" placeholder="Tech" />
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="noOfDays" class="col-form-label">No of Days</label>
+                                <input type="text" th:field="*{noOfDays}" class="form-control" id="noOfDays"
+                                    placeholder="No of Days" />
+                            </div>
                             <div class="col-md-6">
-                                <input type="submit" class="btn btn-primary" value=" Submit ">
+                                <input type="submit" class="btn btn-primary" value="Submit">
                             </div>
- 
                             <input type="hidden" id="id" th:field="*{id}">
-     
                         </div>
                     </form>
                 </div>
@@ -50,5 +47,5 @@
         </div>
     </div>
 </body>
- 
+
 </html>

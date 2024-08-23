@@ -1,71 +1,66 @@
 package com.crud.demo.entity;
 
-import jakarta.persistence.Column;
-
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Course {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int id;
-	@Column
-	String name;
-	@Column
-	String tech;
-	@Column
-	int noOfDays;
-	
-	
-	public Course() {
-		super();
-		
-	}
-	public int getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
+    @NotBlank(message = "Name is required")
+    @Column(nullable = false)
+    private String name;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @NotBlank(message = "Tech is required")
+    @Column(nullable = false)
+    private String tech;
 
+    @NotNull(message = "Number of days is required")
+    @Min(value = 1, message = "Number of days must be greater than 0")
+    @Column(nullable = false)
+    private Integer noOfDays;
 
-	public String getName() {
-		return name;
-	}
+    // Constructors, getters, and setters
 
+    public Course() {}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getTech() {
-		return tech;
-	}
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setTech(String tech) {
-		this.tech = tech;
-	}
+    public String getTech() {
+        return tech;
+    }
 
+    public void setTech(String tech) {
+        this.tech = tech;
+    }
 
-	public int getNoOfDays() {
-		return noOfDays;
-	}
+    public Integer getNoOfDays() {
+        return noOfDays;
+    }
 
-
-	public void setNoOfDays(int noOfDays) {
-		this.noOfDays = noOfDays;
-	}
-
-
-
-	
-	
+    public void setNoOfDays(Integer noOfDays) {
+        this.noOfDays = noOfDays;
+    }
 }
